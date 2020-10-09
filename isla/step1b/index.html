@@ -10,11 +10,11 @@
       dracoLoader.setDecoderConfig({type: 'js'});
     </script>
     <body style="margin : 0px; overflow: hidden;">
-        <a-scene embedded arjs renderer="precision: medium">
+        <a-scene embedded arjs renderer="logarithmicDepthBuffer:true;">
         <a-marker type="pattern" url="pattern-pp5.patt">
             <a-entity
             position="0 -1 0"
-            scale="0.1 0.1 0.1"
+            scale="1 1 1"
             gltf-model="sewing_arrow_test.glb"
             animation-mixer></a-entity>
         </a-marker>
