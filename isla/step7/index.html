@@ -75,8 +75,10 @@
             console.log(object);
             var splash = document.querySelector('#splash');
             scene.addEventListener('model-loaded', function (e) {
-                console.log('splash hidden');
-                splash.style.display = 'none';
+                setTimeout(function(){
+                    console.log('splash hidden');
+                    splash.style.display = 'none';
+                },2000);
             });
         });
     </script>

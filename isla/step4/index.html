@@ -4,18 +4,62 @@
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <style>
+        #splash {
+          position: absolute;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          width: 200px;
+          height: 200px;
+
+          margin: auto;
+
+          background-color:white;
+
+          border-radius:20px;
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        .loading {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 0.25rem solid rgba(255, 255, 255, 0.2);
+          border-top-color: black;
+          animation: spin 1s infinite linear;
+        }
+    </style>
     <script>
       var dracoLoader = new THREE.DRACOLoader();
       dracoLoader.setDecoderPath('../../');
       dracoLoader.setDecoderConfig({type: 'js'});
     </script>
     <body style="margin : 0px; overflow: hidden;">
+        <div id="splash">
+          <div class="loading"></div>
+        </div>
         <a-scene embedded arjs renderer="logarithmicDepthBuffer:true;">
         <a-entity light="type: ambient; color: #FFF"></a-entity>
         <a-entity light="type: directional; color: #BBB; intensity: 0.75" position="-0.5 1 1"></a-entity>
 
         <a-marker type="pattern" url="pattern-pp5.patt">
-            <a-entity
+            <a-entity id="object"
             position="-0.5 -1 -1"
             scale="2 2 2"
             gltf-model="isla_step_4.glb"
@@ -24,4 +68,17 @@
         <a-entity camera></a-entity>
         </a-scene>
     </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scene = document.querySelector('#object');
+            console.log(object);
+            var splash = document.querySelector('#splash');
+            scene.addEventListener('model-loaded', function (e) {
+                setTimeout(function(){
+                    console.log('splash hidden');
+                    splash.style.display = 'none';
+                },2000);
+            });
+        });
+    </script>
 </html>
