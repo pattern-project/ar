@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+      <style>
+        body, h1, p {
+          font-family: 'Roboto', sans-serif;
+          font-weight:300!important;
+        }
+
+        h1 {
+          font-size:6rem;
+        }
+
+        .roundbutton {
+          background-color:#00f;
+          border-radius:50%;
+          border-width:0px;
+          padding: 0px;
+
+        }
+
+        .steptitle {
+          font-size:4rem;
+          color:white;
+          margin-top:15px;
+        }
+
+        #buttons {
+          margin-top:60px;
+        }
+
+        .subtext {
+          font-size:3rem;
+        }
+
+      </style>
+    </head>
+    <body>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>P.1.1 Augmented Reality Instructions</h1>
+            <p class="subtext">Pick which step</p>
+          </div>
+        </div>
+        <div id="buttons" class="row">
+          <div class="col-4 equalheight text-center">
+            <button id="keybox" class="roundbutton" step="1"><p class="steptitle">1</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="2"><p class="steptitle">2</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="3"><p class="steptitle">3</p></button>
+          </div>
+        </div>
+        <div id="buttons" class="row">
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="4"><p class="steptitle">4</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="5"><p class="steptitle">5</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="6"><p class="steptitle">6</p></button>
+          </div>
+        </div>
+        <div id="buttons" class="row">
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="7"><p class="steptitle">7</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="8"><p class="steptitle">8</p></button>
+          </div>
+          <div class="col-4 equalheight text-center">
+            <button class="roundbutton" step="9"><p class="steptitle">9</p></button>
+          </div>
+        </div>
+      </div>
+    </body>
+    <script>
+      let height = $('#keybox').height();
+      $('.roundbutton').width(height);
+
+      $('.roundbutton').on('click',function(){
+        let step = $(this).attr('step');
+        let url = 'step'+step+'/';
+        window.location = url;
+      });
+    </script>
+</html>
