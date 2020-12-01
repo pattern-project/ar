@@ -1,64 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <title>Pattern Project Augment Reality</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <style>
-        #splash {
-          position: absolute;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-
-          width: 200px;
-          height: 200px;
-
-          margin: auto;
-
-          background-color:white;
-
-          border-radius:20px;
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        .loading {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          border: 0.25rem solid rgba(255, 255, 255, 0.2);
-          border-top-color: black;
-          animation: spin 1s infinite linear;
-        }
-    </style>
-    <script>
-      var dracoLoader = new THREE.DRACOLoader();
-      dracoLoader.setDecoderPath('../../');
-      dracoLoader.setDecoderConfig({type: 'js'});
-    </script>
+    <script src="../ar_pre_site.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../ar_site.css">
     <body style="margin : 0px; overflow: hidden;">
         <div id="splash">
           <div class="loading"></div>
         </div>
-        <a-scene embedded arjs renderer="logarithmicDepthBuffer:true;">
-        <a-marker type="pattern" url="pattern-pp5.patt">
+        <div id="animation_bar_background"></div>
+        <div id="animation_bar"></div>
+        <div id="legend">
+          <p><i style="background:#FFFFFF"></i>Right Side</p>
+          <p><i style="background:#4422FF"></i>Wrong Side</p>
+        </div>
+        <a-scene embedded arjs renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+        <a-marker type="pattern" url="pattern7.patt">
             <a-entity id="object"
-            position="-0.5 -1 -1"
+            position="0 -1 -1"
             scale="2 2 2"
             gltf-model="isla_step_7.glb"
             animation-mixer></a-entity>
@@ -67,16 +32,7 @@
         </a-scene>
     </body>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var scene = document.querySelector('#object');
-            console.log(object);
-            var splash = document.querySelector('#splash');
-            scene.addEventListener('model-loaded', function (e) {
-                setTimeout(function(){
-                    console.log('splash hidden');
-                    splash.style.display = 'none';
-                },2000);
-            });
-        });
+      var animation_length =  8500
     </script>
+    <script src="../ar_site.js"></script>
 </html>
