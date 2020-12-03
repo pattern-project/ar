@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="../ar_pre_site.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../ar_site.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137388401-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137388401-3');
+    </script> 
+    <body style="margin : 0px; overflow: hidden;">
+        <div id="splash">
+          <div class="loading"></div>
+        </div>
+        <div id="animation_bar_background"></div>
+        <div id="animation_bar"></div>
+        <div id="arremote"><a href="../">AR Remote</a></div>
+        <div id="legend">
+          <p><i style="background:#FFFFFF"></i>Right Side</p>
+          <p><i style="background:#000033"></i>Wrong Side</p>
+        </div>
+        <a-scene embedded arjs renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+        <a-marker type="pattern" url="pattern9.patt">
+            <a-entity id="object"
+            position="0 -1 -1"
+            scale="2 2 2"
+            gltf-model="isla_step_1.glb"
+            animation-mixer="timeScale: 0.75"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+    <script>
+      var animation_length =  11000
+    </script>
+    <script src="../ar_site.js"></script>
+</html>
